@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SampleActvityTasks</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_task">TaskActivity</string>
+    <string name="title_activity_persist">PersistActivity</string>
 </resources>

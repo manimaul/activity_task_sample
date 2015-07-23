@@ -1,11 +1,9 @@
 package com.willkamp.sampleactvitytasks;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,12 +12,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        TextView tv = (TextView) findViewById(R.id.text_view);
+        tv.setText(getString(R.string.title_activity_main) + System.identityHashCode(this));
+
+        findViewById(R.id.task_activity_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TaskActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                TaskActivity.start(getApplicationContext());
+            }
+        });
+
+        findViewById(R.id.persist_activity_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PersistActivity.start(MainActivity.this);
             }
         });
     }

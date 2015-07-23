@@ -9,9 +9,10 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="MainActivity"
-            android:taskAffinity=".MainActivity"
-            android:launchMode="singleTop"
+            android:label="@string/title_activity_main"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.willkamp"
+            android:excludeFromRecents="false"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +20,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TaskActivity"
-                  android:label="TaskActivity"
-                  android:taskAffinity=".TaskActivity"
-                  android:allowTaskReparenting="true"
-                  android:launchMode="standard"
-                  />
+        <activity
+            android:name=".TaskActivity"
+            android:label="@string/title_activity_task"
+            android:launchMode="standard"
+            android:parentActivityName=".MainActivity"
+            android:taskAffinity="com.willkamp"
+            android:excludeFromRecents="false"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".PersistActivity"
+            android:label="@string/title_activity_persist"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.willkamp"
+            android:excludeFromRecents="false"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.willkamp.sampleactvitytasks.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
